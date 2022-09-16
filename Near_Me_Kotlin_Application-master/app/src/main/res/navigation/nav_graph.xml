@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/btnHome">
+
+    <fragment
+        android:id="@+id/btnHome"
+        android:name="com.example.nearmekotlindemo.fragment.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/btnSavedPlaces"
+        android:name="com.example.nearmekotlindemo.fragment.SavedPlaceFragment"
+        tools:layout="@layout/fragment_saved_place" />
+
+    <fragment
+        android:id="@+id/btnSetting"
+        android:name="com.example.nearmekotlindemo.fragment.SettingFragment"
+        tools:layout="@layout/fragment_setting">
+
+        <action
+            android:id="@+id/action_btnSetting_to_emailConfirmationFragment"
+            app:destination="@id/emailConfirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailChangeFragment"
+        android:name="com.example.nearmekotlindemo.fragment.EmailChangeFragment"
+        android:label="New Email"
+        tools:layout="@layout/fragment_email_change" />
+    <fragment
+        android:id="@+id/emailConfirmationFragment"
+        android:name="com.example.nearmekotlindemo.fragment.EmailConfirmationFragment"
+        android:label="fragment_email_confirmation"
+        tools:layout="@layout/fragment_email_confirmation">
+        <argument
+            android:name="isPassword"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/action_emailConfirmationFragment_to_passwordChangeFragment"
+            app:destination="@id/passwordChangeFragment" />
+        <action
+            android:id="@+id/action_emailConfirmationFragment_to_emailChangeFragment"
+            app:destination="@id/emailChangeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordChangeFragment"
+        android:name="com.example.nearmekotlindemo.fragment.PasswordChangeFragment"
+        android:label="New Password"
+        tools:layout="@layout/fragment_password_change" />
+
+</navigation>
